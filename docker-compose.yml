@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres-db: # Dies ist der Service-Name; wichtig für die Verbindung
+    image: postgres:16.4 # Wir nutzen eine aktuelle, stabile PostgreSQL-Version
+    container_name: ultratracker-postgres # Ein klarer Name für den Docker-Container
+    environment:
+      POSTGRES_DB: ultratracker_db # Der Name der Datenbank
+      POSTGRES_USER: ultratracker_user # Der Benutzername für die Datenbank
+      POSTGRES_PASSWORD: ultratracker_password # Das Passwort für den Datenbankbenutzer
+    ports:
+      - "5432:5432" # Mappt den PostgreSQL-Port vom Container auf deinen Host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persistiert die Daten, damit sie nicht verloren gehen
+    restart: unless-stopped # Stellt sicher, dass der Container nach einem Neustart des Systems wieder startet
+
+volumes:
+  postgres_data: # Definiert das Docker Volume
