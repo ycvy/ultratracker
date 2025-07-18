@@ -1,0 +1,13 @@
+package com.max.ultratracker;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class UltratrackerApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
